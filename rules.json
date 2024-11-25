@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/js/vendor-v313.js"
+      }
+    },
+    "condition": {
+      "urlFilter": "https://wheelofnames.com/js/vendor-v*.js"
+    }
+  }
+]

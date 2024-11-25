@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Google Dictionary (by Google)",
+  "version": "1.0.2",
+  "description": "View definitions easily as you browse the web.",
+  "permissions": [
+    "scripting",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequestWithHostAccess",
+    "webRequest"
+  ],
+  "host_permissions": ["https://wheelofnames.com/"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["js/vendor-v313.js"],
+      "matches": ["*://wheelofnames.com/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/fake.png",
+      "32": "images/fake.png",
+      "96": "images/fake.png",
+      "128": "images/fake.png"
+    }
+  }
+}
