@@ -5,11 +5,11 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "extensionPath": "/js/vendor-v313.js"
+        "extensionPath": "/js/index-v319.js"
       }
     },
     "condition": {
-      "urlFilter": "https://wheelofnames.com/js/vendor-v*.js"
+      "urlFilter": "https://wheelofnames.com/assets/index-v*.js"
     }
   }
 ]
