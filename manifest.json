@@ -22,7 +22,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["js/index-v319.js"],
+      "resources": ["js/index-v347.js"],
       "matches": ["*://wheelofnames.com/*"]
     }
   ],

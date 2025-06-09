@@ -5,7 +5,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "extensionPath": "/js/index-v319.js"
+        "extensionPath": "/js/index-v347.js"
       }
     },
     "condition": {
