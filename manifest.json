@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Google Dictionary (by Google)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "View definitions easily as you browse the web.",
   "permissions": [
     "scripting",
@@ -22,7 +22,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["js/index-v379.js"],
+      "resources": ["js/index-v403.js"],
       "matches": ["*://wheelofnames.com/*"]
     }
   ],
