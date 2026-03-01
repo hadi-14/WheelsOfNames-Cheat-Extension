@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Google Dictionary (by Google)",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "View definitions easily as you browse the web.",
   "permissions": [
     "scripting",

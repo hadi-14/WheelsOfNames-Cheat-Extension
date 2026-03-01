@@ -13032,6 +13032,21 @@ const Ym = {
           ...xi("DeceleratingPhase")(e),
           angle: t() * 2 * Math.PI,
         };
+        if (keypressed != undefined) {
+          const angle =
+            Array.from(
+              { length: s.spinTime * s.fps },
+              (_, i) => s.speed * Math.pow(vC(s.fps, s.spinTime, s.slowSpin), i + 1)
+            ).reduce((acc, val) => acc + val, 0) % 2;
+          const targetValue = [0, 1, 2, 3, 4].includes(keypressed)
+            ? (keypressed + 1) * (Math.PI / 6)
+            : (keypressed - 4) * (Math.PI / 6) + Math.PI;
+          const valueToAdd =
+            angle < targetValue ? targetValue - angle : targetValue + 2 - angle;
+          console.log(angle, valueToAdd);
+          s.angle = valueToAdd;
+        }
+        // console.log(s);
         return pC(t)(s);
       }
       const n = e.speed + Zm(e.fps, e.slowSpin);
@@ -13046,6 +13061,7 @@ const Ym = {
     onTick: (e) => {
       if (e.ticksInPhase > ep(e.fps, e.spinTime)) return xi("StoppedPhase")(e);
       const t = vC(e.fps, e.spinTime, e.slowSpin);
+      console.log(t);
       return {
         ...e,
         speed: e.speed * t,
@@ -14160,22 +14176,21 @@ class AC extends gi {
       s = t.speed,
       i = 15e-5;
     this.deceleration = Math.exp(Math.log(i / s) / r);
-        if (keypressed != undefined) {
-          const angle =
-            Array.from(
-              { length: t.getStateTimeLengths().decelerating },
-              (_, i) => t.speed * Math.pow(this.deceleration, i + 1)
-            ).reduce((acc, val) => acc + val, 0) % 2;
-          const targetValue = [0, 1, 2, 3, 4].includes(keypressed)
-            ? (keypressed + 1) * (Math.PI / 6)
-            : (keypressed - 4) * (Math.PI / 6) + Math.PI;
-          const valueToAdd =
-            angle < targetValue ? targetValue - angle : targetValue + 2 - angle;
-          console.log(angle, valueToAdd);
-          t.angle = valueToAdd;
-        }
-        console.log(this.deceleration, t.angle, keypressed);
-    
+    if (keypressed != undefined) {
+      const angle =
+        Array.from(
+          { length: t.getStateTimeLengths().decelerating },
+          (_, i) => t.speed * Math.pow(this.deceleration, i + 1)
+        ).reduce((acc, val) => acc + val, 0) % 2;
+      const targetValue = [0, 1, 2, 3, 4].includes(keypressed)
+        ? (keypressed + 1) * (Math.PI / 6)
+        : (keypressed - 4) * (Math.PI / 6) + Math.PI;
+      const valueToAdd =
+        angle < targetValue ? targetValue - angle : targetValue + 2 - angle;
+      // console.log(angle, valueToAdd);
+      t.angle = valueToAdd;
+    }
+    console.log(this.deceleration, t.angle, keypressed);
   }
   tick(t) {
     ((t.angle += t.speed),
